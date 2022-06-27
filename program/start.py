@@ -49,7 +49,7 @@ async def _human_time_duration(seconds):
 
 
 @Client.on_message(
-    command(["start", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
+    command(["boastart", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
@@ -93,7 +93,7 @@ async def start_(client: Client, message: Message):
 
 
 @Client.on_message(
-    command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited
+    command(["boaalive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited
 )
 async def alive(client: Client, message: Message):
     current_time = datetime.utcnow()
@@ -120,7 +120,7 @@ async def alive(client: Client, message: Message):
     )
 
 
-@Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["boaping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("pinging...")
@@ -128,7 +128,7 @@ async def ping_pong(client: Client, message: Message):
     await m_reply.edit_text("🏓 `PONG!!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
 
 
-@Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["boauptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
 async def get_uptime(client: Client, message: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
